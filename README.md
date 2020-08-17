@@ -1,3 +1,5 @@
 # ItauGamaTurma7
 
-Links para as notas de aula
+Link para as notas de aula:
+
+https://mega.nz/folder/YkdT1ASY#h9LxWgE2PtZi6mj5qORdoA
