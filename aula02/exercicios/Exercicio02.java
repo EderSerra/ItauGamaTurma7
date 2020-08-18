@@ -14,6 +14,8 @@ public class Exercicio02 {
 
         media = nota1 * 0.4 + nota2 * 0.6;
 
+        //Operadores relacionais: > >= < <= == !=
+        
         if( media >= 6 ){
             System.out.println("Aluno aprovado com média " + media);
         }else{
