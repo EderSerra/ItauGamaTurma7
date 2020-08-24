@@ -1,5 +1,6 @@
 package exercicio02;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class App {
@@ -12,6 +13,7 @@ public class App {
         ContaEspecial ce = null;
         ContaPoupanca cp = null; */
         Conta conta = null;
+        ArrayList<Conta> listaDeContas = new ArrayList<>();
 
         do {
             System.out.println("1-Nova conta corrente");
@@ -29,16 +31,19 @@ public class App {
                     System.out.println("Informe o numero da conta:");
                     numeroConta = in.nextInt();
                     conta = new ContaCorrente(numeroConta);
+                    listaDeContas.add(conta);
                     break;
                 case 2:
                     System.out.println("Informe o numero da conta:");
                     numeroConta = in.nextInt();
                     conta = new ContaPoupanca(numeroConta);
+                    listaDeContas.add(conta);
                     break;
                 case 3:
                     System.out.println("Informe o numero da conta:");
                     numeroConta = in.nextInt();
                     conta = new ContaEspecial(numeroConta, 1000);
+                    listaDeContas.add(conta);
                     break;
                 case 4:
                     System.out.println("saldo: " + conta.getSaldo());
