@@ -46,17 +46,46 @@ public class App {
                     listaDeContas.add(conta);
                     break;
                 case 4:
-                    System.out.println("saldo: " + conta.getSaldo());
+                    System.out.println("Informe o numero da conta:");
+                    numeroConta = in.nextInt();
+
+                    for(int i = 0; i < listaDeContas.size(); i++){
+                        conta = listaDeContas.get(i);
+                        if(conta.getNumero() == numeroConta){
+                            System.out.println("saldo: " + conta.getSaldo());
+                            break;
+                        }
+                    }
+
                     break;
                 case 5:
-                    System.out.println("Informe o valor do saque:");
-                    valor = in.nextDouble();
-                    conta.sacar(valor);        
+                    System.out.println("Informe o numero da conta:");
+                    numeroConta = in.nextInt();
+
+                    for(int i = 0; i < listaDeContas.size(); i++){
+                        conta = listaDeContas.get(i);
+                        if(conta.getNumero() == numeroConta){
+                            System.out.println("Informe o valor do saque:");
+                            valor = in.nextDouble();
+                            conta.sacar(valor); 
+                            break;
+                        }
+                    }
+       
                     break;
                 case 6:
-                    System.out.println("Informe o valor do depósito:");
-                    valor = in.nextDouble();
-                    conta.depositar(valor);
+                    System.out.println("Informe o numero da conta:");
+                    numeroConta = in.nextInt();
+
+                    for(int i = 0; i < listaDeContas.size(); i++){
+                        conta = listaDeContas.get(i);
+                        if(conta.getNumero() == numeroConta){
+                            System.out.println("Informe o valor do depósito:");
+                            valor = in.nextDouble();
+                            conta.depositar(valor);
+                            break;
+                        }
+                    }
                     break;
                 case 7: 
                     break;
