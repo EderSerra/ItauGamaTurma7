@@ -6,10 +6,12 @@ import java.util.Queue;
 public class FilaPrioridade {
     private Queue<Pessoa> filaNormal;
     private Queue<Pessoa> filaPrioridade;
+    private int proxAtendimento;
 
     public FilaPrioridade(){
         filaNormal = new LinkedList<>();
-        filaPrioridade = new LinkedList<>();       
+        filaPrioridade = new LinkedList<>(); 
+        proxAtendimento = 0;      
     }
 
     public void chegadaPessoa(String nome, String senha){
@@ -21,9 +23,26 @@ public class FilaPrioridade {
         }
     }
 
+    public boolean isEmpty(){
+        return filaNormal.isEmpty() && filaPrioridade.isEmpty();
+    }
+
     public String atender(){
-        Pessoa pessoa = filaNormal.remove();
-        return pessoa.getDados();
+        Pessoa pessoa;
+        if( proxAtendimento < 2 && !filaPrioridade.isEmpty() ){
+            pessoa = filaPrioridade.remove();
+            proxAtendimento++;
+            return pessoa.getDados();
+        }else{
+            if( !filaNormal.isEmpty() ){
+                pessoa = filaNormal.remove();
+                proxAtendimento = 0;
+                return pessoa.getDados();
+            }else{
+                return "Fila de atendimento vazia.";
+            }
+        }
+
     }
 
 }
