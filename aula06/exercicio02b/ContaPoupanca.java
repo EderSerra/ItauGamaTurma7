@@ -1,4 +1,4 @@
-package exercicio02;
+package exercicio02b;
 
 public class ContaPoupanca extends Conta {
     private static double taxa; //static: o mesmo atributo para todos os objetos pois é um atributo de CLASSE

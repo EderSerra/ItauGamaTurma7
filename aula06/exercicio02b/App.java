@@ -1,6 +1,5 @@
-package exercicio02;
+package exercicio02b;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class App {
@@ -9,11 +8,7 @@ public class App {
         int opcao;
         int numeroConta;
         double valor, limite;
-/*         ContaCorrente cc = null;
-        ContaEspecial ce = null;
-        ContaPoupanca cp = null; */
-        Conta conta = null;
-        ArrayList<Conta> listaDeContas = new ArrayList<>();
+        GerenciaContas gerenciaContas = new GerenciaContas();
 
         do {
             System.out.println("1-Nova conta corrente");
@@ -26,69 +21,65 @@ public class App {
             System.out.print("==> ");
             opcao = in.nextInt();
 
-            switch (opcao) { //alernativa ao if/else
+            switch (opcao) { 
                 case 1:
                     System.out.println("Informe o numero da conta:");
                     numeroConta = in.nextInt();
-                    conta = new ContaCorrente(numeroConta);
-                    listaDeContas.add(conta);
+                    gerenciaContas.novaContaCorrente(numeroConta);
                     break;
+
                 case 2:
                     System.out.println("Informe o numero da conta:");
                     numeroConta = in.nextInt();
-                    conta = new ContaPoupanca(numeroConta);
-                    listaDeContas.add(conta);
+                    gerenciaContas.novaContaPoupanca(numeroConta);
                     break;
+
                 case 3:
                     System.out.println("Informe o numero da conta:");
                     numeroConta = in.nextInt();
                     System.out.println("Informe o valor do limite:");
                     limite = in.nextDouble();
-                    conta = new ContaEspecial(numeroConta, limite);
-                    listaDeContas.add(conta);
+                    gerenciaContas.novaContaEspecial(numeroConta, limite);
                     break;
+
                 case 4:
                     System.out.println("Informe o numero da conta:");
                     numeroConta = in.nextInt();
 
-                    for(int i = 0; i < listaDeContas.size(); i++){
-                        conta = listaDeContas.get(i);
-                        if(conta.getNumero() == numeroConta){
-                            System.out.println("saldo: " + conta.getSaldo());
-                            break;
-                        }
+                    if(gerenciaContas.isContaValida(numeroConta)){
+                        double saldo = gerenciaContas.getSaldo(numeroConta);
+                        System.out.println("saldo: " + saldo);
+                    }else{
+                        System.out.println("Conta inexistente.");
                     }
-
                     break;
+
                 case 5:
                     System.out.println("Informe o numero da conta:");
                     numeroConta = in.nextInt();
+                    System.out.println("Informe o valor do saque:");
+                    valor = in.nextDouble();
 
-                    for(int i = 0; i < listaDeContas.size(); i++){
-                        conta = listaDeContas.get(i);
-                        if(conta.getNumero() == numeroConta){
-                            System.out.println("Informe o valor do saque:");
-                            valor = in.nextDouble();
-                            conta.sacar(valor); 
-                            break;
-                        }
+                    if(gerenciaContas.sacar(numeroConta, valor)){
+                        System.out.println("Saque efetuado com sucesso");
+                    }else{
+                        System.out.println("Falha ao efetuar o saque");
                     }
        
                     break;
                 case 6:
                     System.out.println("Informe o numero da conta:");
                     numeroConta = in.nextInt();
+                    System.out.println("Informe o valor do depósito:");
+                    valor = in.nextDouble();
 
-                    for(int i = 0; i < listaDeContas.size(); i++){
-                        conta = listaDeContas.get(i);
-                        if(conta.getNumero() == numeroConta){
-                            System.out.println("Informe o valor do depósito:");
-                            valor = in.nextDouble();
-                            conta.depositar(valor);
-                            break;
-                        }
+                    if(gerenciaContas.depositar(numeroConta, valor)){
+                        System.out.println("Depósito efetuado com sucesso.");
+                    }else{
+                        System.out.println("Falha ao efetuar o depósito.");
                     }
                     break;
+
                 case 7: 
                     break;
                 default: //qualquer outra opção diferente das listadas acima
