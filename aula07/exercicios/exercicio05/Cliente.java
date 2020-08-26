@@ -1,6 +1,6 @@
 package exercicios.exercicio05;
 
-public class Cliente {
+public class Cliente { //implicito extends Object
     private String nome, email;
     protected double credito;
 
@@ -24,6 +24,13 @@ public class Cliente {
             return true;
         }
         return false;
+    }
+
+    //toString vem da classe Object que é um extends implicito para toda classe
+    //Object é a classe root (raiz) de todas as outras classes
+    @Override
+    public String toString() {
+        return nome + ": " + email + " credito: " + credito;
     }
 
 }

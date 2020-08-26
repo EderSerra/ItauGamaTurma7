@@ -16,4 +16,10 @@ public class ClienteVip extends Cliente {
         }
         return false;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + " Cred Especial: " + creditoEspecial;
+    }
+    
 }

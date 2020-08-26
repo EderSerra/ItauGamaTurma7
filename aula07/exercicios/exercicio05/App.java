@@ -6,7 +6,9 @@ public class App {
         ClienteVip cliente2 = new ClienteVip("Vanessa", "marcos@teste.com", 1000);
 
         System.out.println( cliente1.fazerCompra(100) );
+        System.out.println( cliente1 );
         System.out.println( cliente2.fazerCompra(100) );
+        System.out.println( cliente2 );
 
         
     }
