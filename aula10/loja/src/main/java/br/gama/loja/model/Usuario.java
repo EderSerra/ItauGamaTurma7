@@ -34,6 +34,9 @@ public class Usuario {
     @Column(name="senha", length = 20, nullable = false)
     private String senha;
 
+    @Column(name = "linkfoto")
+    private String linkFoto;
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "solicitante")
     @JsonIgnoreProperties("solicitante")
     private List<Pedido> pedidos;
@@ -85,6 +88,14 @@ public class Usuario {
 
     public void setPedidos(List<Pedido> pedidos) {
         this.pedidos = pedidos;
+    }
+
+    public String getLinkFoto() {
+        return linkFoto;
+    }
+
+    public void setLinkFoto(String linkFoto) {
+        this.linkFoto = linkFoto;
     }
 
     

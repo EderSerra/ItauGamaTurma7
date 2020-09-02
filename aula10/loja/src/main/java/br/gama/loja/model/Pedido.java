@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
@@ -25,7 +26,7 @@ public class Pedido {
     private char status;
     
     @Column(name="data_pedido")
-    //@Temporal(TemporalType.DATE)
+    //@JsonFormat(pattern="dd/MM/yyyy")
     private LocalDate data;
 
     @ManyToOne
