@@ -1,5 +1,6 @@
 package br.gama.loja.model;
 
+import java.sql.Time;
 import java.time.LocalDate;
 
 import javax.persistence.Column;
@@ -26,8 +27,11 @@ public class Pedido {
     private char status;
     
     @Column(name="data_pedido")
-    //@JsonFormat(pattern="dd/MM/yyyy")
+    @JsonFormat(pattern="dd/MM/yyyy")
     private LocalDate data;
+
+    @Column(name= "hora")
+    private Time hora;
 
     @ManyToOne
     @JsonIgnoreProperties("pedidos")
@@ -63,6 +67,14 @@ public class Pedido {
 
     public void setSolicitante(Usuario solicitante) {
         this.solicitante = solicitante;
+    }
+
+    public Time getHora() {
+        return hora;
+    }
+
+    public void setHora(Time hora) {
+        this.hora = hora;
     }
 
 
