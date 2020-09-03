@@ -77,9 +77,13 @@ public class PedidoController {
         //Novo pedido
         @PostMapping("/pedidos/novo")
         public ResponseEntity<Pedido> novoPedido(@RequestBody Pedido novoPedido){
+/*             DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+            LocalDate data = LocalDate.parse(novoPedido.getData().toString(), fmt);
+            novoPedido.setData(data); */
+            System.out.println(novoPedido.getData());
             Pedido pedido = dao.save(novoPedido);
 
             return ResponseEntity.ok(pedido);
         }
-        
+
 }
